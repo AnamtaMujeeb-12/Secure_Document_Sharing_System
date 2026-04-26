@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 
-const File = require("../models/File");
-const Access = require("../models/Access");
-const User = require("../models/User");
+const File = require("../models/file");
+const Access = require("../models/access");
+const User = require("../models/user");
 
 const crypto = require("crypto");
 const fs = require("fs");

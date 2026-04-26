@@ -10,7 +10,7 @@ const crypto = require("crypto");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
 
-// -------- SIMPLE AUTH (replaces middleware) --------
+// SIMPLE AUTH (replaces middleware)
 const auth = (req, res, next) => {
   const header = req.headers.authorization;
 
@@ -28,11 +28,11 @@ const auth = (req, res, next) => {
   }
 };
 
-// -------- MULTER --------
+//MULTER
 const upload = multer({ dest: "uploads/" });
 
 
-// ================= FILE ROUTES =================
+//FILE ROUTES
 
 // UPLOAD FILE
 router.post("/upload", auth, upload.single("file"), async (req, res) => {
@@ -153,8 +153,6 @@ router.post("/share/:id", auth, async (req, res) => {
 });
 
 
-// ================= DOWNLOAD =================
-
 // DOWNLOAD FILE
 router.get("/download/:token", async (req, res) => {
   try {
@@ -189,7 +187,7 @@ router.get("/download/:token", async (req, res) => {
 });
 
 
-// ================= SHARED WITH ME =================
+// SHARED WITH ME
 
 router.get("/shared-with-me", auth, async (req, res) => {
   try {
